@@ -1,0 +1,19 @@
+<h1 class="text-center">Generate Grid</h1>
+
+<% start = Time.now %>
+
+<div class="text-center list-inline">
+  <ul class="list-inline">
+    <% @grid.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+</div>
+
+<form class="form-group text-center" action="/score">
+  <input type="text" name="attempt">
+  <input type="hidden" name="start_time" value="<%= start %>">
+  <input type="hidden" name="grid" value="<%= @grid.join("") %>">
+  <input type="submit">
+</form>
+
